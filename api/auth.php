@@ -4,13 +4,12 @@ require '../config/database.php'; // Database connection file
 
 // Enable CORS to allow other systems to access this API
 header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: POST");
-header("Access-Control-Allow-Headers: Content-Type");
+header("Access-Control-Allow-Methods: GET");
 header("Content-Type: application/json");
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = isset($_POST['username']) ? trim($_POST['username']) : '';
-    $password = isset($_POST['password']) ? trim($_POST['password']) : '';
+if ($_SERVER["REQUEST_METHOD"] == "GET") {
+    $username = isset($_GET['username']) ? trim($_GET['username']) : '';
+    $password = isset($_GET['password']) ? trim($_GET['password']) : '';
 
     // Validate input
     if (empty($username) || empty($password)) {
@@ -21,6 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Hash the entered password with MD5
     $password = md5($password);
 
+    // Check database connection
     if (!$conn) {
         echo json_encode(["status" => "error", "message" => "Database connection failed: " . mysqli_connect_error()]);
         exit;
