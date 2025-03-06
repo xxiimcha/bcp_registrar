@@ -1,6 +1,6 @@
 <?php
 session_start();
-require '..config/database.php'; // Database connection file
+require '../config/database.php'; // Database connection file
 
 // Enable CORS to allow other systems to access this API
 header("Access-Control-Allow-Origin: *");
