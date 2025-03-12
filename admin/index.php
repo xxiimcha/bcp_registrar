@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>BCP - Admin Login</title>
     
-    <link href="./assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="../assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,600,700,800,900" rel="stylesheet">
     <link href="../assets/css/sb-admin-2.min.css" rel="stylesheet">
-    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <style>
         body {
             background: url('./assets/img/admin-login-bg.jpg') no-repeat center center fixed;
@@ -100,7 +101,7 @@
                 <h1 class="h4 mb-4">Admin Login</h1>
             </div>
             <div id="alertMessage" class="alert alert-danger"></div>
-            <form id="loginForm">
+            <form id="adminLoginForm">
                 <div class="form-group">
                     <label for="email">Email Address / Username</label>
                     <input type="text" class="form-control form-control-user" id="email" name="email" placeholder="Enter Email or Username..." required>
@@ -114,4 +115,30 @@
         </div>
     </div>
 </body>
+<script>
+    $(document).ready(function () {
+        $('#adminLoginForm').on('submit', function (event) {
+            event.preventDefault();
+            let formData = $(this).serialize();
+            
+            $.ajax({
+                url: '../controllers/LoginController.php?action=admin',
+                type: 'POST',
+                data: formData,
+                dataType: 'json',
+                success: function (response) {
+                    if (response.status === "success") {
+                        console.log("Redirecting to: " + response.redirect); // Debugging
+                        window.location.href = response.redirect;  // Ensure this is executed
+                    } else {
+                        $('#alertMessage').text(response.message).fadeIn().delay(3000).fadeOut();
+                    }
+                },
+                error: function () {
+                    $('#alertMessage').text('Failed to login. Please try again.').show();
+                }
+            });
+        });
+    });
+</script>
 </html>
