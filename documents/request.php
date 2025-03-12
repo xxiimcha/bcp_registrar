@@ -8,18 +8,34 @@
             <?php include('../partials/nav.php'); ?>
 
             <div class="container-fluid">
-                <h1 class="h3 mb-4 text-gray-800">Request New Document</h1>
+                <h1 class="h3 mb-4 text-gray-800 text-center">Request New Document</h1>
 
-                <div class="row">
-                    <div class="col-lg-6 mx-auto">
-                        <div class="card shadow mb-4">
-                            <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Document Request Form</h6>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="card shadow-lg border-0 rounded-lg">
+                            <div class="card-header bg-primary text-white text-center">
+                                <h5 class="m-0">Document Request Form</h5>
                             </div>
-                            <div class="card-body">
+                            <div class="card-body p-4">
                                 <form id="documentRequestForm">
                                     <div class="form-group">
-                                        <label for="documentType">Select Document</label>
+                                        <label for="student_id" class="font-weight-bold">Student ID</label>
+                                        <input type="text" class="form-control" id="student_id" name="student_id" value="<?php echo $_SESSION['username']; ?>" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="full_name" class="font-weight-bold">Full Name</label>
+                                        <input type="text" class="form-control" id="full_name" name="full_name" value="<?php echo $_SESSION['first_name'] . ' ' . $_SESSION['middle_name'] . ' ' . $_SESSION['last_name']; ?>" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="program" class="font-weight-bold">Program</label>
+                                        <input type="text" class="form-control" id="program" name="program" value="<?php echo $_SESSION['program']; ?>" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="year_level" class="font-weight-bold">Year Level</label>
+                                        <input type="text" class="form-control" id="year_level" name="year_level" value="<?php echo $_SESSION['year_level']; ?>" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="documentType" class="font-weight-bold">Select Document</label>
                                         <select class="form-control" id="documentType" name="documentType" required>
                                             <option value="">-- Select Document --</option>
                                             <option value="Transcript of Records">Transcript of Records</option>
@@ -30,10 +46,12 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="remarks">Remarks (Optional)</label>
-                                        <textarea class="form-control" id="remarks" name="remarks" rows="3"></textarea>
+                                        <label for="remarks" class="font-weight-bold">Remarks (Optional)</label>
+                                        <textarea class="form-control" id="remarks" name="remarks" rows="3" placeholder="Enter any additional request details..."></textarea>
                                     </div>
-                                    <button type="submit" class="btn btn-primary btn-block">Submit Request</button>
+                                    <div class="text-center">
+                                        <button type="submit" class="btn btn-primary btn-lg w-50">Submit Request</button>
+                                    </div>
                                 </form>
                             </div>
                         </div>
