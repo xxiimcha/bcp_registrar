@@ -26,51 +26,54 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.6);
         }
         .login-container {
             position: relative;
-            max-width: 400px;
+            max-width: 420px;
             width: 100%;
             z-index: 10;
         }
         .card {
-            border-radius: 15px;
-            padding: 35px;
-            box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.4);
-            background: rgba(20, 50, 100, 0.9);
-            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
             border: none;
-            color: #ffffff;
+            color: #333;
         }
         .btn-user {
-            font-size: 1.1rem;
-            padding: 12px;
-            background: linear-gradient(90deg, #1e3a8a 0%, #3b82f6 100%);
+            font-size: 1.2rem;
+            padding: 14px;
+            background: linear-gradient(90deg, #007bff 0%, #0056b3 100%);
             border: none;
             transition: 0.3s;
-            border-radius: 25px;
+            border-radius: 30px;
             color: white;
+            font-weight: bold;
         }
         .btn-user:hover {
-            background: linear-gradient(90deg, #3b82f6 0%, #1e3a8a 100%);
+            background: linear-gradient(90deg, #0056b3 0%, #007bff 100%);
         }
         .form-control-user {
-            border-radius: 10px;
+            border-radius: 12px;
             padding: 15px;
-            border: 1px solid #3b82f6;
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
+            border: 1px solid #007bff;
+            background: rgba(255, 255, 255, 0.5);
+            color: #333;
         }
         .form-control-user::placeholder {
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(0, 0, 0, 0.5);
         }
         .alert {
             display: none;
-            border-radius: 8px;
-            background: #1e3a8a;
+            border-radius: 10px;
+            background: #dc3545;
             color: white;
             border: none;
+            padding: 10px;
+            text-align: center;
         }
         .spinner-overlay {
             display: none;
@@ -97,7 +100,7 @@
     <div class="login-container">
         <div class="card">
             <div class="text-center">
-                <h1 class="h4 mb-4">Student Login</h1>
+                <h1 class="h4 mb-4 font-weight-bold">Student Login</h1>
             </div>
             <div id="alertMessage" class="alert alert-danger"></div>
             <form id="loginForm">

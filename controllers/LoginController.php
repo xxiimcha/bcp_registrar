@@ -20,7 +20,7 @@ function authenticateStudent($conn, $studentNumber, $password) {
             $user = $result->fetch_assoc();
             switch ($user['role']) {
                 case 'student':
-                    switch (password_verify($password, $user['password'])) {
+                    switch (hash('sha256', $password) === $user['password']) {
                         case true:
                             $_SESSION['user_id'] = $user['id'];
                             $_SESSION['username'] = $user['username'];
