@@ -25,7 +25,7 @@ function authenticateStudent($conn, $studentNumber, $password) {
                             $_SESSION['user_id'] = $user['id'];
                             $_SESSION['username'] = $user['username'];
                             $_SESSION['role'] = 'student';
-                            echo json_encode(['status' => 'success', 'redirect' => '../student_dashboard.php']);
+                            echo json_encode(['status' => 'success', 'redirect' => 'common/dashboard.php']);
                             break;
                         default:
                             echo json_encode(['status' => 'error', 'message' => 'Invalid password.']);
