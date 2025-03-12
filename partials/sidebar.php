@@ -59,7 +59,7 @@ $role = $_SESSION['role'] ?? '';
             <div id="studentMenu" class="collapse" aria-labelledby="studentHeading" data-parent="#accordionSidebar">
                 <div class="bg-dark py-2 collapse-inner rounded">
                     <a class="collapse-item text-white" href="../students/view.php">Student List</a>
-                    <a class="collapse-item text-white" href="../students/enrollment.php">Enrollment</a>
+                    <a class="collapse-item text-white" href="../main/enrollees.php">Enrollment</a>
                 </div>
             </div>
         </li>
